@@ -45,3 +45,9 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Invoke deployment hook
+        uses: distributhor/workflow-webhook@v3
+        if: github.ref == 'refs/heads/main'
+        env:
+          webhook_url: ${{ secrets.PORTAINER_WEBHOOK_URL }}
