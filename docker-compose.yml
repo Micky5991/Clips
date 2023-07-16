@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  database:
+    image: postgres:15.3-alpine
+    environment:
+      POSTGRES_PASSWORD: ""
+      POSTGRES_USER: "postgres"
+      POSTGRES_DB: "postgres"
+    volumes:
+      - "pg_data:/var/lib/postgresql/data"
+
+  app:
+    image: ghcr.io/micky5991/clips:dev
+    build:
+      dockerfile: Dockerfile
+
+volumes:
+  pg_data:
