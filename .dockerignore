@@ -1,0 +1,7 @@
+node_modules/
+.github/
+.idea/
+docker-compose.yml
+Dockerfile
+LICENSE
+README.md
