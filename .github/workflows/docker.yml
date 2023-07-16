@@ -46,10 +46,5 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
-      - name: Invoke deployment hook
-        uses: distributhor/workflow-webhook@v3
-        if: github.ref == 'refs/heads/main'
-        env:
-          verbose: true
-          curl_opts: '-H "CF-Access-Client-Id: ${{ secrets.CLOUDFLARE_CLIENT_ID }}" -H "CF-Access-Client-Secret: ${{ secrets.CLOUDFLARE_CLIENT_SECRET }}"'
-          webhook_url: ${{ secrets.PORTAINER_WEBHOOK_URL }}
+      - name: Trigger deployment
+        run: 'curl -X POST ${{ secrets.PORTAINER_WEBHOOK_URL }} -H "CF-Access-Client-Id: ${{ secrets.CLOUDFLARE_CLIENT_ID }}" -H "CF-Access-Client-Secret: ${{ secrets.CLOUDFLARE_CLIENT_SECRET }}" --header "Accept: application/json"'
