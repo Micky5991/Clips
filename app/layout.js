@@ -1,11 +1,12 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
 import Navigation from "@/app/navigation.js";
+import env from "@/libs/env.js";
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: process.env.NEXT_PUBLIC_PAGE_NAME,
+  title: env('NEXT_PUBLIC_PAGE_NAME'),
   description: 'Watch clips uploaded by users',
 }
 
