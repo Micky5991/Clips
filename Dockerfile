@@ -50,6 +50,9 @@ COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
+COPY --from=builder --chown=nextjs:nodejs /app/prisma/migrations/ ./prisma/migrations
+COPY --from=builder --chown=nextjs:nodejs /app/prisma/schema.prisma ./prisma/schema.prisma
+
 COPY --chown=nextjs:nodejs ./entrypoint.sh ./entrypoint.sh
 
 USER nextjs
@@ -58,4 +61,4 @@ EXPOSE 3000
 
 ENV PORT 3000
 
-CMD ["node", "server.js"]
+ENTRYPOINT [ "sh", "entrypoint.sh" ]
