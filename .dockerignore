@@ -1,7 +1,9 @@
 node_modules/
 .github/
 .idea/
+.next/
 docker-compose.yml
+prisma/data/
 Dockerfile
 LICENSE
 README.md
