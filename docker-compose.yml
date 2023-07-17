@@ -10,6 +10,7 @@ services:
       - "35432:5432"
     volumes:
       - "pg_data:/var/lib/postgresql/data/"
+
   app:
     image: ghcr.io/micky5991/clips:dev
     build:
@@ -18,8 +19,6 @@ services:
       DATABASE_URL: "postgresql://postgres:secret123@database:5432/postgres"
     links:
       - database
-    volumes:
-      - "./prisma/data/:/app/prisma/data/"
 
 volumes:
   pg_data:
