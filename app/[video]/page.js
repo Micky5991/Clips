@@ -1,3 +1,21 @@
+import env from "@/libs/env.js";
+
+export const metadata = {
+    title: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor. | ${env('NEXT_PUBLIC_PAGE_NAME')}`,
+    description: 'Watch clips uploaded by users',
+    openGraph: {
+        title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor.',
+        siteName: env('NEXT_PUBLIC_PAGE_NAME'),
+        videos: [
+            {
+                secure: 'rickastley.mp4',
+            }
+        ],
+        locale: 'en_US',
+        type: 'video.other',
+    },
+}
+
 export default function Video({ params: { video: videoId } }) {
     return (
         <div>
