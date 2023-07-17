@@ -6,8 +6,12 @@ import env from "@/libs/env.js";
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: env('NEXT_PUBLIC_PAGE_NAME'),
-  description: 'Watch clips uploaded by users',
+    title: env('NEXT_PUBLIC_PAGE_NAME'),
+    description: 'Watch clips uploaded by users',
+    robots: {
+        index: false,
+        follow: true,
+    }
 }
 
 export default function RootLayout({ children }) {
