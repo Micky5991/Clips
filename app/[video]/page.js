@@ -2,11 +2,11 @@ export default function Video({ params: { video: videoId } }) {
     return (
         <div>
 
-            <h1 className={'my-4 font-black text-xl md:text-3xl lg:text-4xl tracking-wide'}>
+            <h1 className={'my-4 font-black text-2xl md:text-3xl lg:text-4xl tracking-wide'}>
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor.
             </h1>
 
-            <div className={'my-12'}>
+            <div className={'my-8 lg:my-12'}>
                 <video
                     width="1280"
                     height="720"
