@@ -24,7 +24,7 @@ function getData(slug) {
     return prisma.clip.findFirst({ where: { slug: { equals: slug }}});
 }
 
-export default async function Video({ params: { video: slug } }) {
+export default async function Video({ params: { clip: slug } }) {
     const video = await getData(slug);
 
     if (video == null) {
