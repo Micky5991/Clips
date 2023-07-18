@@ -1,6 +1,8 @@
 import env from "@/libs/env.js";
 import prisma from "@/libs/prisma.js";
 import { notFound } from "next/navigation.js";
+import formatDistance from "date-fns/formatDistance";
+import format from "date-fns/format";
 
 export const metadata = {
     title: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor. | ${env('NEXT_PUBLIC_PAGE_NAME')}`,
@@ -50,7 +52,7 @@ export default async function Video({ params: { video: slug } }) {
             </div>
 
             <div className={'bg-zinc-900 p-6 rounded-2xl'}>
-                Uploaded <span className={'font-bold'}>1 hour ago</span>
+                Uploaded <span className={'font-bold'} title={format(video.createdAt, "dd.MM.yyyy - HH:mm")}>{formatDistance(video.createdAt, new Date(), { addSuffix: true })}</span>
             </div>
 
         </div>
