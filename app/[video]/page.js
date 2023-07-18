@@ -1,4 +1,6 @@
 import env from "@/libs/env.js";
+import prisma from "@/libs/prisma.js";
+import { notFound } from "next/navigation.js";
 
 export const metadata = {
     title: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor. | ${env('NEXT_PUBLIC_PAGE_NAME')}`,
@@ -16,12 +18,22 @@ export const metadata = {
     },
 }
 
-export default function Video({ params: { video: videoId } }) {
+function getData(slug) {
+    return prisma.clip.findFirst({ where: { slug: { equals: slug }}});
+}
+
+export default async function Video({ params: { video: slug } }) {
+    const video = await getData(slug);
+
+    if (video == null) {
+        return notFound();
+    }
+
     return (
         <div>
 
             <h1 className={'my-4 font-black text-2xl md:text-3xl lg:text-4xl tracking-wide'}>
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor.
+                {video.title}
             </h1>
 
             <div className={'my-8 lg:my-12'}>
