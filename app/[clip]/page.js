@@ -3,6 +3,7 @@ import prisma from "@/libs/prisma.js";
 import { notFound } from "next/navigation.js";
 import formatDistance from "date-fns/formatDistance";
 import format from "date-fns/format";
+import DateDisplay from "@/components/date-display.js";
 
 export const metadata = {
     title: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor. | ${env('NEXT_PUBLIC_PAGE_NAME')}`,
@@ -52,7 +53,7 @@ export default async function Video({ params: { clip: slug } }) {
             </div>
 
             <div className={'bg-zinc-900 p-6 rounded-2xl'}>
-                Uploaded <span className={'font-bold'} title={format(video.createdAt, "dd.MM.yyyy - HH:mm")}>{formatDistance(video.createdAt, new Date(), { addSuffix: true })}</span>
+                Uploaded <DateDisplay date={video.createdAt} className={'font-bold'} />
             </div>
 
         </div>
