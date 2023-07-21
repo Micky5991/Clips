@@ -6,4 +6,4 @@ npx prisma migrate deploy
 
 echo "Starting SvelteKit Server"
 
-node index.js
+node .

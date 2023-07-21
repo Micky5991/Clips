@@ -15,6 +15,8 @@ services:
     image: ghcr.io/micky5991/clips:dev
     build:
       dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
     environment:
       DATABASE_URL: "postgresql://postgres:secret123@database:5432/postgres"
     links:
