@@ -10,6 +10,8 @@
 <div class="container mx-auto">
     <Header />
 
-    <slot />
+    <div class="my-8">
+        <slot />
+    </div>
 </div>
 

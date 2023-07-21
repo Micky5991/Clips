@@ -4,7 +4,7 @@
 
 <ul>
     {#each data.clips as clip}
-        <li>Clip: {clip.title}</li>
+        <li>Clip: <a href={clip.slug}>{clip.title}</a></li>
     {:else}
         empty
     {/each}
