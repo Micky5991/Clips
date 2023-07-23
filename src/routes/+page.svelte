@@ -15,6 +15,6 @@
             </div>
         </div>
     {:else}
-        empty
+        No clips have been uploaded.
     {/each}
 </div>
