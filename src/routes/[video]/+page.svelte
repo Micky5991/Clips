@@ -1,5 +1,5 @@
 <script>
-    export let data;
+    export let data = { clip: null };
 
     let { clip } = data;
 </script>
@@ -8,4 +8,5 @@
 
 <video autoplay preload="auto" controls width="250" class="aspect-ratio aspect-video w-full my-12 bg-black">
     <source src="rickastley.mp4" type="video/mp4">
+    <track kind="captions" src="."/>
 </video>
