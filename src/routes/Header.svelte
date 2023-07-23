@@ -2,5 +2,7 @@
     <div class="font-black text-2xl">
         <a href="/">😂 Clips</a>
     </div>
-    <div>Login</div>
+    <div>
+        <a href="/auth/signin">Login</a>
+    </div>
 </div>
