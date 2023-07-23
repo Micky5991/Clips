@@ -2,10 +2,19 @@
     export let data;
 </script>
 
-<ul>
+<div class="space-y-8">
     {#each data.clips as clip}
-        <li>Clip: <a href={clip.slug}>{clip.title}</a></li>
+        <div class="flex flex-col sm:flex-row bg-zinc-800 rounded-lg">
+            <div class="sm:w-3/12 shrink-0 h-32 sm:h-auto">
+                <a href={clip.slug}>
+                    <img src="rickastley.png" alt={`Thumbnail of clip ${clip.title}`} class="w-full h-full sm:aspect-video object-cover"/>
+                </a>
+            </div>
+            <div class="p-4">
+                <a href={clip.slug} class="font-bold">{clip.title}</a>
+            </div>
+        </div>
     {:else}
         empty
     {/each}
-</ul>
+</div>
