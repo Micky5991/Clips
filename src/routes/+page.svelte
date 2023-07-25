@@ -10,8 +10,8 @@
                     <img src="rickastley.png" alt={`Thumbnail of clip ${clip.title}`} class="w-full h-full sm:aspect-video object-cover"/>
                 </a>
             </div>
-            <div class="p-4">
-                <a href={clip.slug} class="font-bold">{clip.title}</a>
+            <div class="py-4 px-6">
+                <a href={clip.slug} class="font-bold text-2xl">{clip.title}</a>
             </div>
         </div>
     {:else}

@@ -1,6 +1,9 @@
 <script>
     import "../app.css";
     import Header from "./Header.svelte";
+    import {page} from "$app/stores";
+
+    let session = $page.data.session;
 </script>
 
 <svelte:head>
@@ -8,7 +11,7 @@
 </svelte:head>
 
 <div class="container mx-auto">
-    <Header />
+    <Header session={session} />
 
     <div class="my-8">
         <slot />
